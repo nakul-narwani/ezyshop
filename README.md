@@ -29,4 +29,4 @@ EzyShop is a full-featured e-commerce platform built using the MERN stack and st
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Authentication:** JWT
-- **Deployment:** Vercel
+- **Deployment:** Render
