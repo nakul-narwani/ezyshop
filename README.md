@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # EzyShop E-commerce Website
 
 EzyShop is a full-featured e-commerce platform built using the MERN stack and styled with Tailwind CSS. It includes a customer-facing frontend, an admin panel for managing the store, and a backend to handle data and API requests.
@@ -31,4 +30,3 @@ EzyShop is a full-featured e-commerce platform built using the MERN stack and st
 - **Database:** MongoDB
 - **Authentication:** JWT
 - **Deployment:** Render
-
