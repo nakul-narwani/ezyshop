@@ -94,7 +94,7 @@ const Footer = () => {
                   d="M3 10h4l3 9 4-14 3 9h4"
                 />
               </svg>
-              <span>+1-212-521-4569</span>
+              <span>+91 (939) 666-0132</span>
             </li>
             <li className="flex items-center space-x-2 hover:text-indigo-500 cursor-pointer transition duration-300">
               <svg
