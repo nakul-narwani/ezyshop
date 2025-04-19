@@ -80,7 +80,7 @@ const Navbar = () => {
           />
           {/* DROPDOWN */}
           {token && (
-            <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4 ">
+            <div className="z-50 group-hover:block hidden absolute dropdown-menu right-0 pt-4 ">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
                 <p className="cursor-pointer hover:text-black">My Profile</p>
                 <p

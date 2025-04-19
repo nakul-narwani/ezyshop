@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
+import { Link } from "react-router-dom";
 
 const TypingEffect = ({ texts, speed = 150 }) => {
   const [displayText, setDisplayText] = useState("");
@@ -46,29 +47,48 @@ const Footer = () => {
               "Fast shipping & excellent customer service.",
             ]}
           />
-          <p className="text-sm text-gray-500 mt-2">
+          {/* <p className="text-sm text-gray-500 mt-2">
             Discover quality products at affordable prices with a seamless
             shopping experience.
-          </p>
+          </p> */}
         </div>
         <div className="hidden md:block"></div>
         {/* Quick Links */}
         <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-gray-800 hover:text-indigo-600 transition duration-300">
-            Quick Links
-          </h3>
+          <h3 className="text-xl font-semibold text-gray-800 ">Quick Links</h3>
           <ul className="space-y-2">
             <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              Home
+              <Link
+                to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Home
+              </Link>
             </li>
             <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              Shop Now
+              <Link
+                to="/collection"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Shop Now
+              </Link>
+            </li>
+
+            <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
+              <Link
+                to="/about"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                About Us
+              </Link>
             </li>
             <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              About Us
-            </li>
-            <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              Privacy Policy
+              <Link
+                to="/contact"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Contact
+              </Link>
             </li>
           </ul>
         </div>
@@ -94,7 +114,9 @@ const Footer = () => {
                   d="M3 10h4l3 9 4-14 3 9h4"
                 />
               </svg>
-              <span>+91 (939) 666-0132</span>
+              <a href="tel:+919396660132">
+                <span>+91 (939) 666-0132</span>
+              </a>
             </li>
             <li className="flex items-center space-x-2 hover:text-indigo-500 cursor-pointer transition duration-300">
               <svg
@@ -111,7 +133,12 @@ const Footer = () => {
                   d="M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                 />
               </svg>
-              <span>support@ezyshop.com</span>
+              <a
+                href="mailto:support@ezyshop.com"
+                className="hover:text-indigo-500 transition duration-300"
+              >
+                support@ezyshop.com
+              </a>
             </li>
           </ul>
         </div>

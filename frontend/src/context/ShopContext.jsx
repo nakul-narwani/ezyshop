@@ -85,8 +85,10 @@ const ShopContextProvider = (props) => {
       } catch (e) {
         console.log(e);
         toast.error(e.message);
+        return false;
       }
     }
+    return true; // ✅ success
   };
 
   const getCartAmount = () => {
