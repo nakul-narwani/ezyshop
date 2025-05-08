@@ -43,7 +43,7 @@ const Footer = () => {
             texts={[
               "Welcome to EzyShop!",
               "Your one-stop online store.",
-              "Best deals on electronics, fashion, and more!",
+              "Best deals on the latest fashion trends and styles!",
               "Fast shipping & excellent customer service.",
             ]}
           />
