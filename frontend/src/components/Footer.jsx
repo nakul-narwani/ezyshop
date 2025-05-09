@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 
+// Typing animation for branding
 const TypingEffect = ({ texts, speed = 150 }) => {
   const [displayText, setDisplayText] = useState("");
   const [index, setIndex] = useState(0);
@@ -30,6 +31,7 @@ const TypingEffect = ({ texts, speed = 150 }) => {
   return <span className="text-xl font-bold text-gray-800">{displayText}</span>;
 };
 
+// Reusable collapsible section for mobile
 const FooterSection = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -52,10 +54,11 @@ const FooterSection = ({ title, children }) => {
   );
 };
 
+// Footer component
 const Footer = () => {
   return (
-    <div className="bg-gray-50 text-gray-700 py-10 px-5 mt-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="bg-gray-50 text-gray-700 py-10 px-5 mt-10 w-full">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-5 md:px-0">
         {/* Company Info */}
         <div className="space-y-4 h-[200px]">
           <img
@@ -71,11 +74,10 @@ const Footer = () => {
               "Fast shipping & excellent customer service.",
             ]}
           />
-
         </div>
 
-        {/* Quick Links - Collapsible */}
-        <FooterSection title="Quick Links" m>
+        {/* Quick Links */}
+        <FooterSection title="Quick Links">
           <ul className="space-y-2 mt-2">
             {["Home", "Shop Now", "About Us", "Contact"].map((label, idx) => {
               const link = ["/", "/collection", "/about", "/contact"][idx];
@@ -96,7 +98,7 @@ const Footer = () => {
           </ul>
         </FooterSection>
 
-        {/* Contact Info - Collapsible */}
+        {/* Contact Info */}
         <FooterSection title="Get in Touch">
           <ul className="space-y-2 mt-2">
             <li>
