@@ -18,10 +18,10 @@ const About = () => {
         />
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
           <p>
-          Welcome to EZYSHOP – Your one-stop shop for a seamless online shopping experience!
+          Welcome to EzyShop – Your one-stop shop for a seamless online shopping experience!
           </p>
           <p>
-          At EZYSHOP, we’re committed to providing customers with a diverse range of high-quality products at affordable prices, all while ensuring a hassle-free shopping journey. Developed by a passionate team of four tech enthusiasts – Nakul Narwani, Naitik Mangal, Nishant Jain, and Manu Mahawar, as part of our final year project, EZYSHOP combines the power of modern technology with a user-friendly design to offer a smooth e-commerce experience.
+          At EzyShop, we’re committed to providing customers with a diverse range of high-quality products at affordable prices, all while ensuring a hassle-free shopping journey. Developed by a passionate team of four tech enthusiasts – Nakul Narwani, Naitik Mangal, Nishant Jain, and Manu Mahawar, as part of our final year project, EzyShop combines the power of modern technology with a user-friendly design to offer a smooth ecommerce experience.
           </p>
           <p>
           Our platform is built using the MERN stack, ensuring fast, secure, and scalable performance. Whether you're looking for fashion, electronics, home goods, or anything in between, we’ve got you covered.
@@ -29,7 +29,7 @@ const About = () => {
 
           <b className="text-gray-800">Our Mission</b>
           <p>
-            To create an easy, convenient, and enjoyable shopping experience that caters to your needs, all while focusing on quality, customer service, and trust. We believe that online shopping should be as effortless as possible, which is why we've worked hard to make EZYSHOP intuitive and responsive, whether you're browsing from your phone or desktop.
+            To create an easy, convenient, and enjoyable shopping experience that caters to your needs, all while focusing on quality, customer service, and trust. We believe that online shopping should be as effortless as possible, which is why we've worked hard to make EzyShop intuitive and responsive, whether you're browsing from your phone or desktop.
           </p>
         </div>
       </div>
@@ -48,7 +48,7 @@ const About = () => {
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
           <b>User-Centric Design:</b>
           <p className="text-gray-600">
-          We’ve designed EZYSHOP with you in mind a clean, easy-to-navigate interface and secure checkout process.
+          We’ve designed EzyShop with you in mind a clean, easy-to-navigate interface and secure checkout process.
           </p>
         </div>
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">

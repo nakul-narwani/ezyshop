@@ -43,13 +43,13 @@ const Contact = () => {
             <p className="text-lg font-semibold text-gray-800">Contact Us</p>
             <p className="text-gray-600">
               Tel: +91 (939) 666-0132 <br />
-              Email: <a href="mailto:support@ezyshop.com" className="text-blue-600 hover:underline">support@ezyshop.com</a>
+              Email: <a href="mailto:ezyshop33@gmail.com" className="text-blue-600 hover:underline">ezyshop33@gmail.com</a>
             </p>
           </div>
 
           {/* Careers */}
           <div>
-            <p className="text-lg font-semibold text-gray-800">Careers at EZYSHOP</p>
+            <p className="text-lg font-semibold text-gray-800">Careers at EzyShop</p>
             <p className="text-gray-600">
               Learn more about our teams and job openings.
             </p>

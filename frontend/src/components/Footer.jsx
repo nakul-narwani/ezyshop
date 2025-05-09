@@ -11,11 +11,9 @@ const TypingEffect = ({ texts, speed = 150 }) => {
     const currentText = texts[index % texts.length];
 
     const handleTyping = () => {
-      if (isDeleting) {
-        setDisplayText((prev) => prev.slice(0, -1));
-      } else {
-        setDisplayText((prev) => currentText.substring(0, prev.length + 1));
-      }
+      setDisplayText((prev) =>
+        isDeleting ? prev.slice(0, -1) : currentText.substring(0, prev.length + 1)
+      );
 
       if (!isDeleting && displayText === currentText) {
         setTimeout(() => setIsDeleting(true), 1000);
@@ -32,13 +30,39 @@ const TypingEffect = ({ texts, speed = 150 }) => {
   return <span className="text-xl font-bold text-gray-800">{displayText}</span>;
 };
 
+const FooterSection = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <div className="space-y-4 md:space-y-0">
+      <button
+        className="md:cursor-default w-full text-left text-xl font-semibold text-gray-800 md:hover:text-indigo-600 transition duration-300 md:mb-4"
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
+        {title}
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-96" : "max-h-0"
+        } md:max-h-full`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
 const Footer = () => {
   return (
-    <div className="bg-gray-50 text-gray-700 py-10 px-5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Company Info with Typing Effect */}
-        <div className="space-y-4 h-[200px] over">
-          <img src={assets.logo} className="w-32" alt="EzyShop Logo" />
+    <div className="bg-gray-50 text-gray-700 py-10 px-5 mt-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Company Info */}
+        <div className="space-y-4 h-[200px]">
+          <img
+            src={assets.logo}
+            className="w-32 transition-transform duration-300 hover:scale-105"
+            alt="EzyShop Logo"
+          />
           <TypingEffect
             texts={[
               "Welcome to EzyShop!",
@@ -47,101 +71,54 @@ const Footer = () => {
               "Fast shipping & excellent customer service.",
             ]}
           />
-          {/* <p className="text-sm text-gray-500 mt-2">
-            Discover quality products at affordable prices with a seamless
-            shopping experience.
-          </p> */}
-        </div>
-        <div className="hidden md:block"></div>
-        {/* Quick Links */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-gray-800 ">Quick Links</h3>
-          <ul className="space-y-2">
-            <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              <Link
-                to="/"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Home
-              </Link>
-            </li>
-            <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              <Link
-                to="/collection"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Shop Now
-              </Link>
-            </li>
 
-            <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              <Link
-                to="/about"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                About Us
-              </Link>
-            </li>
-            <li className="hover:text-indigo-500 cursor-pointer transition duration-300">
-              <Link
-                to="/contact"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                Contact
-              </Link>
-            </li>
+        </div>
+
+        {/* Quick Links - Collapsible */}
+        <FooterSection title="Quick Links" m>
+          <ul className="space-y-2 mt-2">
+            {["Home", "Shop Now", "About Us", "Contact"].map((label, idx) => {
+              const link = ["/", "/collection", "/about", "/contact"][idx];
+              return (
+                <li
+                  key={label}
+                  className="hover:text-indigo-500 cursor-pointer transition duration-300"
+                >
+                  <Link
+                    to={link}
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
-        </div>
+        </FooterSection>
 
-        {/* Contact Info */}
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold text-gray-800 hover:text-indigo-600 transition duration-300">
-            Get in Touch
-          </h3>
-          <ul className="space-y-2">
-            <li className="flex items-center space-x-2 hover:text-indigo-500 cursor-pointer transition duration-300">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+        {/* Contact Info - Collapsible */}
+        <FooterSection title="Get in Touch">
+          <ul className="space-y-2 mt-2">
+            <li>
+              <a
+                href="tel:+919396660132"
+                className="flex items-center space-x-2 hover:text-indigo-500"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 10h4l3 9 4-14 3 9h4"
-                />
-              </svg>
-              <a href="tel:+919396660132">
+                <span>📞</span>
                 <span>+91 (939) 666-0132</span>
               </a>
             </li>
-            <li className="flex items-center space-x-2 hover:text-indigo-500 cursor-pointer transition duration-300">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
+            <li>
               <a
-                href="mailto:support@ezyshop.com"
-                className="hover:text-indigo-500 transition duration-300"
+                href="mailto:ezyshop33@gmail.com"
+                className="flex items-center space-x-2 hover:text-indigo-500"
               >
-                support@ezyshop.com
+                <span>📧</span>
+                <span>ezyshop33@gmail.com</span>
               </a>
             </li>
           </ul>
-        </div>
+        </FooterSection>
       </div>
 
       {/* Footer Bottom */}
