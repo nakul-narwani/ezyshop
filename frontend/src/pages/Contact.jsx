@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <div className="container mx-auto px-6">
       {/* Title Section */}
-      <div className="text-center text-3xl md:text-4xl font-bold py-14 border-t-4 border-gray-300 mb-0">
+      <div className="text-2xl text-center pt-8 border-t">
         <Title text1={"CONTACT"} text2={"US"} />
       </div>
 
