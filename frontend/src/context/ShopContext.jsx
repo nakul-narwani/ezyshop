@@ -14,6 +14,7 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState("");
+  const [user, setUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -112,7 +113,7 @@ const ShopContextProvider = (props) => {
     console.log("helo");
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
-      console.log("helo", response);
+      // console.log("helo", response);
       if (response.data.success) {
         setProducts(response.data.products);
       } else {
@@ -152,6 +153,37 @@ const ShopContextProvider = (props) => {
     }
   }, []);
 
+  const getCurrentUserData = async () => {
+    try {
+      const token = localStorage.getItem("token"); // Or you can use the token state here
+      if (!token) return;
+
+      const res = await axios.get("http://localhost:5100/api/user/current-user", {
+        headers: { token },
+      });
+
+      if (res.data.success) {
+        const userData = res.data.user;
+        console.log(userData)
+        setUser({
+          name: userData.name,
+          email: userData.email
+        });
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.error("Failed to fetch user:", error);
+      toast.error("Failed to fetch user data.");
+    }
+  };
+
+  // Fetch user data when the token changes
+  useEffect(() => {
+    getCurrentUserData();
+  }, []); // This will re-run the effect when `token` changes.
+
+
   const value = {
     products,
     currency,
@@ -170,6 +202,8 @@ const ShopContextProvider = (props) => {
     token,
     setToken,
     setCartItems,
+    user,
+    setUser
   };
 
   return (

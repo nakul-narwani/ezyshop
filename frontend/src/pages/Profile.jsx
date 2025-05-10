@@ -2,13 +2,23 @@ import React from "react";
 import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
+
+// const { user, navigate } = useContext(ShopContext);
+
+
 const Profile = () => {
-  const user = {
-    name: "Naitik Mangal",
-    email: "naitik@example.com",
-    joined: "January 2024",
-  };
-  const { navigate } = useContext(ShopContext);
+  // const user = {
+  //   name: "Naitik Mangal",
+  //   email: "naitik@example.com",
+  //   joined: "January 2024",
+  // };
+  const { user, navigate } = useContext(ShopContext);
+
+  if (!user) {
+    return <div>Loading...</div>; // If the user data is not yet available
+  }
+
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       {/* Header */}
@@ -28,11 +38,11 @@ const Profile = () => {
         <div className="flex-1">
           <h2 className="text-xl font-semibold">{user.name}</h2>
           <p className="text-gray-600">{user.email}</p>
-          <p className="text-sm text-gray-400 mt-1">Joined: {user.joined}</p>
+          {/* <p className="text-sm text-gray-400 mt-1">Joined: {user.joined}</p> */}
         </div>
-        <button className="border px-4 py-2 text-sm rounded hover:bg-gray-100 transition">
+        {/* <button className="border px-4 py-2 text-sm rounded hover:bg-gray-100 transition">
           Edit Profile
-        </button>
+        </button> */}
       </div>
 
       {/* Sections */}
