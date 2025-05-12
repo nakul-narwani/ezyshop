@@ -5,19 +5,16 @@ import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 // const { user, navigate } = useContext(ShopContext);
 
-
 const Profile = () => {
-  // const user = {
-  //   name: "Naitik Mangal",
-  //   email: "naitik@example.com",
-  //   joined: "January 2024",
-  // };
-  const { user, navigate } = useContext(ShopContext);
+  const user = {
+    name: "Naitik Mangal",
+    email: "naitik@example.com",
+  };
+  // const { user, navigate } = useContext(ShopContext);
 
   if (!user) {
     return <div>Loading...</div>; // If the user data is not yet available
   }
-
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
@@ -53,7 +50,10 @@ const Profile = () => {
           <p className="text-sm text-gray-600">
             View and track your past orders.
           </p>
-          <button onClick={() => navigate("/orders")} className="mt-4 px-6 py-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600 transition">
+          <button
+            onClick={() => navigate("/orders")}
+            className="mt-4 px-6 py-2 bg-blue-500 text-white text-sm rounded-md hover:bg-blue-600 transition"
+          >
             View Orders
           </button>
         </div>
@@ -79,7 +79,10 @@ const Profile = () => {
           <p className="text-sm text-gray-600">
             Browse our product collection and find what you love.
           </p>
-          <button onClick={() => navigate("/cart")} className="mt-4 px-6 py-2 bg-purple-500 text-white text-sm rounded-md hover:bg-purple-600 transition">
+          <button
+            onClick={() => navigate("/cart")}
+            className="mt-4 px-6 py-2 bg-purple-500 text-white text-sm rounded-md hover:bg-purple-600 transition"
+          >
             Explore Now
           </button>
         </div>
