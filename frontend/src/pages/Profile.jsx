@@ -8,7 +8,7 @@ import { UserCircleIcon } from "@heroicons/react/24/solid";
 const Profile = () => {
   const user = {
     name: "Naitik Mangal",
-    email: "naitik@example.com",
+    email: "naitikmangal336@gmail.com",
   };
   // const { user, navigate } = useContext(ShopContext);
 
