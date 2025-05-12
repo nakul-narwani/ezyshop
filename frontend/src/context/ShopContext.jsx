@@ -153,36 +153,35 @@ const ShopContextProvider = (props) => {
     }
   }, []);
 
-  const getCurrentUserData = async () => {
-    try {
-      const token = localStorage.getItem("token"); // Or you can use the token state here
-      if (!token) return;
+  // const getCurrentUserData = async () => {
+  //   try {
+  //     const token = localStorage.getItem("token"); // Or you can use the token state here
+  //     if (!token) return;
 
-      const res = await axios.get("http://localhost:5100/api/user/current-user", {
-        headers: { token },
-      });
+  //     const res = await axios.get("http://localhost:5100/api/user/current-user", {
+  //       headers: { token },
+  //     });
 
-      if (res.data.success) {
-        const userData = res.data.user;
-        console.log(userData)
-        setUser({
-          name: userData.name,
-          email: userData.email
-        });
-      } else {
-        toast.error(res.data.message);
-      }
-    } catch (error) {
-      console.error("Failed to fetch user:", error);
-      toast.error("Failed to fetch user data.");
-    }
-  };
+  //     if (res.data.success) {
+  //       const userData = res.data.user;
+  //       console.log(userData)
+  //       setUser({
+  //         name: userData.name,
+  //         email: userData.email
+  //       });
+  //     } else {
+  //       toast.error(res.data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Failed to fetch user:", error);
+  //     toast.error("Failed to fetch user data.");
+  //   }
+  // };
 
-  // Fetch user data when the token changes
-  useEffect(() => {
-    getCurrentUserData();
-  }, []); // This will re-run the effect when `token` changes.
-
+  // // Fetch user data when the token changes
+  // useEffect(() => {
+  //   getCurrentUserData();
+  // }, []); // This will re-run the effect when `token` changes.
 
   const value = {
     products,
@@ -202,8 +201,6 @@ const ShopContextProvider = (props) => {
     token,
     setToken,
     setCartItems,
-    user,
-    setUser
   };
 
   return (
